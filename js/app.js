@@ -30,14 +30,20 @@ const navs = document.getElementById('navbar__list')
 const sections = document.querySelectorAll('main > section');
 
 
+const ACTIVE_SECTION = 'your-active-class'
 /**
  * End Global Variables
  * Start Helper Functions
  * 
 */
 
-function removeActiveClass() {
-
+/**
+ * Removes active class from sections
+ */
+function resetActiveSections() {
+    sections.forEach( element => {
+        element.classList.remove(ACTIVE_SECTION)  
+    })
 }
 
 /**
@@ -46,7 +52,7 @@ function removeActiveClass() {
  * 
 */
 
-// build the nav
+// build the nav from sections on page
 
 sections.forEach( element => {
     let menuItem = element.dataset
@@ -61,7 +67,6 @@ sections.forEach( element => {
         nav_link.onclick   = navClicked
         nav.appendChild(nav_link)
 
-
         navs.appendChild(
             nav
         )
@@ -74,13 +79,13 @@ sections.forEach( element => {
 // Scroll to anchor ID using scrollTO event
 
 function navClicked(e) {
-    e.preventDefault()
-    removeActiveClass()
-    let sectionId = e.target.dataset
+    e.preventDefault() // prevent default browser functionality
 
+    let sectionId      = e.target.dataset
     let sectionElement = document.getElementById(sectionId.nav)
-    console.log('section offset', sectionElement.offsetTop)
+
     window.scrollTo(0, sectionElement.offsetTop)
+    setActiveSection(sectionElement)
     
 }
 
@@ -93,7 +98,10 @@ function navClicked(e) {
 // Build menu 
 
 // Scroll to section on link click
+function setActiveSection(element) {
+    resetActiveSections() // call to remove active class from sections if any
+    element.classList.add(ACTIVE_SECTION) // add active class to current selected section
+}
 
 // Set sections as active
-
 
