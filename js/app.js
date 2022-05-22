@@ -29,8 +29,8 @@ const navs = document.getElementById('navbar__list')
 // Gets all sections on the page.
 const sections = document.querySelectorAll('main > section');
 
-
-const ACTIVE_SECTION = 'your-active-class'
+// Active class name
+const ACTIVE_SECTION = 'active__section'
 /**
  * End Global Variables
  * Start Helper Functions
@@ -58,15 +58,16 @@ sections.forEach( element => {
     let menuItem = element.dataset
 
     if(menuItem.nav) {
-        let nav      = document.createElement('li')
-        let nav_link = document.createElement('a')
-        nav_link.className = 'menu__link'
-        nav_link.innerHTML = menuItem.nav
-        nav_link.href      = '#' + element.id
+        let nav              = document.createElement('li')
+        let nav_link         = document.createElement('a')
+        nav_link.className   = 'menu__link'
+        nav_link.innerHTML   = menuItem.nav
+        nav_link.href        = '#' + element.id
         nav_link.dataset.nav = element.id
-        nav_link.onclick   = navClicked
+        nav_link.onclick     = navClicked // attach on click event
+        
+        // list to ul nav
         nav.appendChild(nav_link)
-
         navs.appendChild(
             nav
         )
@@ -84,7 +85,7 @@ function navClicked(e) {
     let sectionId      = e.target.dataset
     let sectionElement = document.getElementById(sectionId.nav)
 
-    window.scrollTo(0, sectionElement.offsetTop)
+    window.scrollTo(0, sectionElement.offsetTop - 60) // deduct the menu height, so it doesnt go under.
     setActiveSection(sectionElement)
     
 }
