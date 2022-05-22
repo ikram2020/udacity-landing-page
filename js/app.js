@@ -23,6 +23,12 @@
  * 
 */
 
+// Gets navigtion items holder
+const navs = document.getElementById('navbar__list')
+
+// Gets all sections on the page.
+const sections = document.querySelectorAll('main > section');
+
 
 /**
  * End Global Variables
@@ -30,7 +36,9 @@
  * 
 */
 
+function removeActiveClass() {
 
+}
 
 /**
  * End Helper Functions
@@ -40,12 +48,41 @@
 
 // build the nav
 
+sections.forEach( element => {
+    let menuItem = element.dataset
+
+    if(menuItem.nav) {
+        let nav      = document.createElement('li')
+        let nav_link = document.createElement('a')
+        nav_link.className = 'menu__link'
+        nav_link.innerHTML = menuItem.nav
+        nav_link.href      = '#' + element.id
+        nav_link.dataset.nav = element.id
+        nav_link.onclick   = navClicked
+        nav.appendChild(nav_link)
+
+
+        navs.appendChild(
+            nav
+        )
+    }
+})
 
 // Add class 'active' to section when near top of viewport
 
 
 // Scroll to anchor ID using scrollTO event
 
+function navClicked(e) {
+    e.preventDefault()
+    removeActiveClass()
+    let sectionId = e.target.dataset
+
+    let sectionElement = document.getElementById(sectionId.nav)
+    console.log('section offset', sectionElement.offsetTop)
+    window.scrollTo(0, sectionElement.offsetTop)
+    
+}
 
 /**
  * End Main Functions
