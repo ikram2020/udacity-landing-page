@@ -87,6 +87,7 @@ function navClicked(e) {
 
     window.scrollTo(0, sectionElement.offsetTop - 60) // deduct the menu height, so it doesnt go under.
     setActiveSection(sectionElement)
+    setActiveNavbar(sectionElement)
     
 }
 
@@ -95,6 +96,17 @@ function navClicked(e) {
  * Begin Events
  * 
 */
+
+function setActiveNavbar(element) {
+    
+    navs.querySelectorAll('li').forEach( el => {
+        let nav = el.querySelector('a')
+        nav.classList.remove('menu__link-active')
+        if(nav.dataset.nav === element.id){
+            nav.classList.add('menu__link-active')
+        }
+    })
+}
 
 // Build menu 
 
@@ -106,3 +118,24 @@ function setActiveSection(element) {
 
 // Set sections as active
 
+// page scroll section detect
+
+function onPageScroll() {
+    sections.forEach( element => {
+        let elemBound = element.getBoundingClientRect();
+        // calculate element bounds.
+        if( elemBound.right <= (window.innerWidth || document.documentElement.clientWidth) && elemBound.left >= 0 &&
+            elemBound.top >= 0 &&
+            elemBound.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            elemBound.right <= (window.innerWidth || document.documentElement.clientWidth)
+        ) {
+            setActiveSection(element)
+        }
+    })
+}
+
+// register event for scroll.
+document.addEventListener('scroll', onPageScroll);
+
+//initiate onPageScroll to highlight 
+onPageScroll()

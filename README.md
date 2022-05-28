@@ -1,18 +1,38 @@
-# Ikram's Landing Page Project
+![Tux, the Linux mascot](logo.png)
 
-## Table of Contents
-- Landing
-- Gallery
-- Projects
-- Contact Me
-- About Me
+# Ikram's Single Page App
+[Google](https://google.com/)
 
-## Instructions
+## My cool single app page for portfolio webpages.
 
-The page is single app page, and contains four sections with navigation that's controlled by javascript.
 
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+# Demo-Preview
 
-To get started, open `js/app.js` and start building out the app's functionality
+Checkout demo website.
 
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
+
+# Table of contents
+
+Table of contents.
+
+- [Ikram's Single Page App](#ikrams-single-page-app)
+  - [My cool single app page for portfolio webpages.](#my-cool-single-app-page-for-portfolio-webpages)
+- [Demo-Preview](#demo-preview)
+- [Table of contents](#table-of-contents)
+- [How to install](#how-to-install)
+- [Requirements](#requirements)
+- [Usage](#usage)
+
+# How to install
+[(Back to top)](#table-of-contents)
+Clone this app, drag and drop the index.html file to the browser.
+```git clone https://github.com/ikram2020/udacity-landing-page.git``` -->
+
+# Requirements
+
+Used HTML, CSS, and Javascrip to create this app.
+
+# Usage
+[(Back to top)](#table-of-contents)
+Single Page App. Used for simple portfolio websites. Just add sections and navigation will automatically populate.
+<!-- This is optional and it is used to give the user info on how to use the project after installation. This could be added in the Installation section also. -->

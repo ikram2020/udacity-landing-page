@@ -92,6 +92,11 @@ section {
     transition: ease 0.3s all;
 }
 
+.navbar__menu .menu__link-active {
+    background-color: #333;
+    color: #fff;
+}
+
 /* Header Styles */
 .page__header {
     background: #fff;
@@ -202,6 +207,7 @@ section.active__section {
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
     border: 1px solid #fff;
     border-radius: 5px;
+    background-color: rgb(17, 51, 204);
 }
 
 section.active__section .landing__container::before {
