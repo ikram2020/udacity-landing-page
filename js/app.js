@@ -112,6 +112,7 @@ function setActiveNavbar(element) {
 
 // Scroll to section on link click
 function setActiveSection(element) {
+    setActiveNavbar(element)
     resetActiveSections() // call to remove active class from sections if any
     element.classList.add(ACTIVE_SECTION) // add active class to current selected section
 }
